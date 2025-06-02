@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Quizlet Converter ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    
+    <div class="container">
+        <h1>PDF to Quizlet Converter ✨</h1>
+        <p class="subtitle">Turn boring PDFs into cute flashcards!</p>
+        
+        <div class="upload-area" id="dropArea">
+            <input type="file" id="pdfInput" accept=".pdf" hidden>
+            <label for="pdfInput" class="upload-btn" data-tooltip="Supports text PDFs only">Choose PDF File</label>
+            <p>or drag & drop here~</p>
+            <div class="file-info" id="fileInfo"></div>
+        </div>
+        
+        <div class="options">
+            <div class="option-group">
+                <label for="flashcardType">Flashcard Style:</label>
+                <select id="flashcardType">
+                    <option value="qa">❓ Question & Answer</option>
+                    <option value="term-def">📝 Term & Definition</option>
+                </select>
+            </div>
+            
+            <div class="option-group">
+                <label for="pageRange">Page Range:</label>
+                <input type="text" id="pageRange" placeholder="e.g., 1-5, 7" data-tooltip="Leave blank for first pages">
+            </div>
+            
+            <div class="option-group">
+                <label for="maxCards">Max Cards:</label>
+                <input type="number" id="maxCards" min="1" value="20">
+            </div>
+        </div>
+        
+        <button id="convertBtn" class="convert-btn" data-tooltip="Let's make flashcards!">Convert to Flashcards</button>
+        
+        <div class="results" id="results">
+            <div class="flashcards-container" id="flashcardsContainer"></div>
+            
+            <div class="export-options">
+                <button id="copyBtn" class="export-btn" data-tooltip="Copy for Quizlet import">Copy</button>
+                <button id="downloadBtn" class="export-btn" data-tooltip="Save as text file">Download</button>
+                <button id="quizletBtn" class="export-btn" data-tooltip="Open Quizlet website">Open Quizlet</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>🌸 How It Works:</h3>
+            <ol>
+                <li>Upload a PDF (text-based works best)</li>
+                <li>Choose your cute flashcard style</li>
+                <li>Get magical flashcards ✨</li>
+                <li>Export and study with joy!</li>
+            </ol>
+            
+            <div class="tips">
+                <h4>Pro Tips</h4>
+                <ul>
+                    <li>Lecture notes convert best</li>
+                    <li>Use page ranges to focus</li>
+                    <li>Q&A mode loves question marks</li>
+                    <li>Term-Def looks for colons (:)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
